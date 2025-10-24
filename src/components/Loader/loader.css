@@ -1,0 +1,26 @@
+.video-web-view {
+  display: block;
+  height: 100vh;
+  width: 100%;
+  object-fit: cover;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+.video-mobile-view {
+  display: none;
+}
+@media (max-width: 768px) {
+  .video-mobile-view {
+    display: block;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  .video-web-view {
+    display: none;
+  }
+}
