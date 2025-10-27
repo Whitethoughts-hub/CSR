@@ -11,3 +11,17 @@
   font-weight: 300; /* Light */
   font-style: normal;
 }
+.font-weight-300 {
+  font-weight: 200 !important;
+}
+.leadership-img {
+  height: 300px;
+  margin-bottom: 20px;
+}
+p {
+  font-size: 16px;
+  color: #404041;
+}
+.text-white {
+  color: white !important;
+}

@@ -2,8 +2,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#007643] text-white px-[20px] pt-[40px] pb-[20px] flex items-center flex-col justify-center">
-      <div className="w-[100%] flex max-w-[1300px] flex-col md:flex-row">
+    <footer className="bg-[#007643] w-[100%] text-white pt-[50px] pb-[20px] flex items-center flex-col justify-center">
+      <div className="w-full flex max-w-[1300px] flex-col px-[20px] md:px-[50px]  md:flex-row">
         <div className="h-[170px] w-full md:w-[50%] flex flex-col justify-between">
           <a href="tel:+91 40 2311 8484">
             <h2 className="text-[#D8EDDD] text-[22px]">+91 40 2311 8484 </h2>
@@ -11,8 +11,8 @@ const Footer = () => {
           <a href="mailto:info@csrestates.com">
             <h2 className="text-[18px] ">info@csrestates.com</h2>
           </a>
-          <p className="text-[16px]">CIN: U70102TG1996PLC022903</p>
-          <p className="text-[16px]">
+          <p className="text-[16px] text-white">CIN: U70102TG1996PLC022903</p>
+          <p className="text-[16px] text-white">
             4th floor, CSR Estate, Plot No.8, Sector-1, <br /> HUDA Techno
             Enclave, Madhapur, Hyderabad - 500081
           </p>
@@ -27,14 +27,18 @@ const Footer = () => {
           ></iframe>
         </div>
       </div>
-      <div className="h-[0.5px] w-full max-w-[1300px] bg-white mx-auto mt-[20px]"></div>
-      <div className="flex">
-        <p className="text-center mt-[20px]">
+      <div className="max-w-[1300px] w-[100%] flex items-center justify-center">
+        <div className="h-[0.5px] mx-[20px] md:mx-[50px] w-full  bg-white mt-[20px]  "></div>
+      </div>
+      <div className="flex px-[20px] ">
+        <p className="text-center mt-[20px] text-white">
           {" "}
           © - 2025 Copyright. CSR Estate | All rights reserved |
           <a href=""> Terms & Conditions </a> | <a href="">Privacy Policy</a>
           <br className="none md:block" /> Designed & Developed by{" "}
-          <a href="https://whitethoughts.in">White Thoughts and Branding</a>
+          <a href="https://whitethoughts.in" target="_blank">
+            White Thoughts and Branding
+          </a>
         </p>
       </div>
     </footer>

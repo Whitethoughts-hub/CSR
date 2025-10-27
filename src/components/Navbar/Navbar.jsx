@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../assets/Main_logo.svg";
 import "./navbar.css";
@@ -6,6 +6,8 @@ import "./navbar.css";
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [navHeight, setNavHeight] = useState(0);
+  const navRef = useRef(null);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
@@ -19,6 +21,13 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [hasAnimated]);
 
+  // ✅ Automatically detect navbar height to prevent overlap
+  useEffect(() => {
+    if (navRef.current) {
+      setNavHeight(navRef.current.offsetHeight);
+    }
+  }, [menuOpen]);
+
   const linkClasses = ({ isActive }) =>
     `transition-colors ${
       isActive
@@ -29,13 +38,14 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`navbar fixed top-0 left-0 w-full z-50  bg-white ${
+        ref={navRef}
+        className={`navbar fixed top-0 left-0 w-full z-50 bg-white ${
           hasAnimated ? "slide-in shadow-md" : ""
         }`}
       >
-        <div className="max-w-[1300px] mx-auto px-4 md:px-8 py-2">
+        <div className="max-w-[1300px] mx-auto px-[20px] md:px-[50px]  py-2">
           {/* Desktop Navbar */}
-          <div className="hidden md:flex justify-around items-center h-14">
+          <div className="hidden md:flex justify-between items-center h-14">
             {/* Left Section */}
             <div className="flex space-x-8">
               <NavLink to="/home" className={linkClasses}>
@@ -48,7 +58,7 @@ const Navbar = () => {
 
             {/* Center Section (Logo) */}
             <div className="flex justify-center">
-              <NavLink to="/" className="flex items-center">
+              <NavLink to="/home" className="flex items-center">
                 <img src={Logo} alt="Logo" className="h-14 w-auto" />
               </NavLink>
             </div>
@@ -67,7 +77,7 @@ const Navbar = () => {
           {/* Mobile Navbar */}
           <div className="md:hidden flex justify-between items-center h-14">
             {/* Logo Left */}
-            <NavLink to="/" className="flex items-center">
+            <NavLink to="/home" className="flex items-center">
               <img src={Logo} alt="Logo" className="h-12 w-auto" />
             </NavLink>
 
@@ -103,7 +113,7 @@ const Navbar = () => {
               : "max-h-0 opacity-0 -translate-y-5"
           }`}
         >
-          <div className="max-w-[1300px] mx-auto px-4 pt-4 pb-4 space-y-4 flex flex-col items-center text-black">
+          <div className="max-w-[1300px] mx-auto px-[20px] pt-4 pb-4 space-y-4 flex flex-col items-center text-black">
             <NavLink
               to="/home"
               className={linkClasses}
@@ -136,8 +146,11 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Spacer */}
-      <div className="h-16 w-full bg-transparent"></div>
+      {/* ✅ Dynamic Spacer — auto matches navbar height */}
+      <div
+        style={{ height: `${navHeight}px` }}
+        className="w-full bg-transparent"
+      ></div>
     </>
   );
 };
