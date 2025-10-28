@@ -1,0 +1,130 @@
+import React, { useEffect, useRef, useState } from "react";
+import bgImage from "../../assets/home/cover.jpg";
+
+const VisionMissionSection = () => {
+  const sectionRef = useRef(null);
+  const [overlayExpanded, setOverlayExpanded] = useState(false);
+  const [showVision, setShowVision] = useState(false);
+  const [showMission, setShowMission] = useState(false);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = sectionRef.current;
+      const navbar = document.querySelector("nav");
+      if (!section || !navbar) return;
+
+      const sectionRect = section.getBoundingClientRect();
+      const navbarBottom = navbar.getBoundingClientRect().bottom;
+      const viewportHeight = window.innerHeight;
+      const scrollingDown = window.scrollY > lastScrollY.current;
+      lastScrollY.current = window.scrollY;
+
+      const sectionHeight = sectionRect.height;
+      const visibleHeight =
+        Math.min(viewportHeight, sectionRect.bottom) -
+        Math.max(0, sectionRect.top);
+      const visibleRatio = visibleHeight / sectionHeight;
+
+      // ✅ Scroll Down: trigger when top of section touches navbar bottom
+      if (
+        scrollingDown &&
+        sectionRect.top <= navbarBottom &&
+        sectionRect.bottom > navbarBottom &&
+        !overlayExpanded
+      ) {
+        setOverlayExpanded(true);
+        setTimeout(() => setShowVision(true), 1000);
+        setTimeout(() => setShowMission(true), 1800);
+      }
+
+      // ✅ Scroll Up: trigger when 70% of section is visible in viewport
+      if (!scrollingDown && visibleRatio >= 0.9 && !overlayExpanded) {
+        setOverlayExpanded(true);
+        setTimeout(() => setShowVision(true), 1000);
+        setTimeout(() => setShowMission(true), 1800);
+      }
+
+      // ✅ Reset when fully out of viewport (any direction)
+      if (sectionRect.bottom <= 0 || sectionRect.top >= viewportHeight) {
+        setOverlayExpanded(false);
+        setShowVision(false);
+        setShowMission(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [overlayExpanded]);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative h-[100vh] w-full py-[80px] overflow-hidden flex flex-col items-center justify-center"
+    >
+      {/* Background Image */}
+      <div
+        className={`absolute inset-0 bg-cover bg-center transition-transform duration-[2500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          overlayExpanded ? "scale-110" : "scale-100"
+        }`}
+        style={{ backgroundImage: `url(${bgImage})` }}
+      ></div>
+
+      {/* Overlay */}
+      <div
+        className={`absolute inset-0 bg-black/70 transform transition-all duration-[2000ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+          overlayExpanded
+            ? "scale-100 opacity-70"
+            : "scale-75 opacity-100 rounded-lg"
+        }`}
+      ></div>
+
+      {/* Content */}
+      <div className="relative z-10 w-[100%] max-w-[1300px] gap-[80px] md:gap-[0px] flex flex-col px-[20px] md:px-[50px]">
+        {/* Vision */}
+        <div
+          className={`transition-transform duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-[100%] md:w-[35%] ${
+            showVision
+              ? "translate-x-0 opacity-100"
+              : "-translate-x-[200px] opacity-0"
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-thin mb-4 tracking-[2px] text-white">
+            VISION
+          </h2>
+          <p className="text-sm md:text-base leading-relaxed text-white">
+            To be a globally recognized and trusted entity known for driving
+            innovation, fostering growth, and delivering exceptional value
+            across diverse industries. We envision a future where our commitment
+            to ethical practices, forward-thinking solutions, and enduring
+            relationships helps shape a world of sustainable progress,
+            prosperity, and positive impact.
+          </p>
+        </div>
+
+        {/* Mission */}
+        <div
+          className={`ml-auto transition-transform duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-[100%] md:w-[35%]  text-right ${
+            showMission
+              ? "translate-x-0 opacity-100"
+              : "translate-x-[200px] opacity-0"
+          }`}
+        >
+          <h2 className="text-4xl md:text-5xl font-thin mb-4 tracking-[2px] text-white">
+            MISSION
+          </h2>
+          <p className="text-sm md:text-base leading-relaxed text-white">
+            By fostering a culture of continuous innovation, operational
+            excellence, and ethical collaboration, we deliver solutions that
+            exceed expectations across industries. We empower our teams to drive
+            growth, embrace forward-thinking technologies, and build enduring
+            relationships, ensuring our work creates lasting value and a
+            positive impact on society.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default VisionMissionSection;

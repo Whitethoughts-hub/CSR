@@ -11,6 +11,12 @@
   font-weight: 300; /* Light */
   font-style: normal;
 }
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url("./assets/fonts/HelveticaNeueThin.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
 .font-weight-300 {
   font-weight: 200 !important;
 }
@@ -21,7 +27,15 @@
 p {
   font-size: 16px;
   color: #404041;
+  font-weight: 300 !important;
+  line-height: 20px;
 }
 .text-white {
   color: white !important;
+}
+.font-weight-400 {
+  font-weight: 400 !important;
+}
+.font-size-18 {
+  font-size: 18px;
 }
