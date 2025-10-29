@@ -22,7 +22,7 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 md:right-[calc((100vw-1300px)/2+1rem)] flex items-center justify-center w-10 h-10 rounded-full bg-[#32905E] text-white text-[20px] shadow-lg  transition-all duration-300"
+          className="fixed z-1000 bottom-4 right-4 md:right-[calc((100vw-1300px)/2+1rem)] flex items-center justify-center w-11 h-11 rounded-full bg-[#32905E] text-white text-[20px] shadow-lg  transition-all duration-300"
           aria-label="Scroll to top"
         >
           ↑

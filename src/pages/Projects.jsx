@@ -8,10 +8,10 @@ const Projects = () => {
       <Header />
 
       <section
-        className="h-[80vh] w-[100%] bg-cover bg-center flex items-center justify-center px-[20px]"
+        className="h-[100vh] w-[100%] bg-cover bg-center flex items-center justify-center px-[20px]"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
-        <h1 className="text-[45px] text-[#007643] text-center py-[30px] font-weight-300">
+        <h1 className="text-[45px] text-[#007643] text-center py-[30px] font-weight-200">
           PROJECT COMING SOON…
         </h1>
       </section>

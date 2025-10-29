@@ -4,16 +4,20 @@ import himareddy from "../assets/leadership/HIMAReddy.jpg";
 const Leadership = () => {
   return (
     <section className="flex items-center flex-col justify-center max-w-[1300px]  ">
-      <h1 className="text-[45px] text-[#A0AB9B] text-center py-[50px] font-weight-300">
+      <h1 className="text-[45px] text-[#A0AB9B] text-center py-[50px] font-weight-200">
         LEADERSHIP
       </h1>
       <div className="px-[20px] md:px-[50px]">
-        <img src={shekar} alt="chairman-shekar" className="leadership-img" />
+        <img
+          src={shekar}
+          alt="Chairman-Shekar-Image"
+          className="leadership-img"
+        />
         <h2 className="text-[20px] text-[#63A37B] ">C. SHEKAR REDDY</h2>
         <p className="font-bold mb-[10px] text-[#404041]">
           Chairman & Managing Director
         </p>
-        <p className=" md:w-[40%] text-[#404041]">
+        <p className=" md:w-[32%] text-[#404041]">
           A civil engineer with over three decades of experience in real estate,
           he has been a driving force in shaping policies at both state and
           national levels. A founding member of CREDAI and former National
@@ -27,14 +31,14 @@ const Leadership = () => {
         <div className="w-[100%] md:w-[50%]">
           <img
             src={sankeerth}
-            alt="Director-sankeerth"
+            alt="Director-Sankeerth-Image"
             className="leadership-img"
           />
           <h2 className="text-[20px] text-[#63A37B] ">
             C. SANKEERTH ADITYA REDDY
           </h2>
           <p className="font-bold mb-[10px] text-[#404041]">Director</p>
-          <p className="  text-[#404041] w-[75%]">
+          <p className="  text-[#404041] w-[68%]">
             A civil engineer and management specialist by education, Mr.
             Sankeerth brings a passion for building and construction to CSR
             Estates. As a tech enthusiast, he integrates innovative technologies
@@ -46,7 +50,7 @@ const Leadership = () => {
         <div className="flex flex-col items-start md:items-start w-[100%] md:w-[50%]">
           <img
             src={himareddy}
-            alt="Director-Himareddy"
+            alt="Director-Himareddy-Image"
             className="leadership-img "
           />
           <h2 className="text-[20px] text-[#63A37B] ">HIMA REDDY</h2>

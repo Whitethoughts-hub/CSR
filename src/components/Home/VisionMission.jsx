@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import bgImage from "../../assets/home/cover.jpg";
 
-const VisionMissionSection = () => {
+const VisionMission = () => {
   const sectionRef = useRef(null);
   const [overlayExpanded, setOverlayExpanded] = useState(false);
   const [showVision, setShowVision] = useState(false);
@@ -72,10 +72,10 @@ const VisionMissionSection = () => {
 
       {/* Overlay */}
       <div
-        className={`absolute inset-0 bg-black/70 transform transition-all duration-[2000ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
+        className={`absolute inset-0 bg-black/70 transform transition-all duration-[1300ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
           overlayExpanded
             ? "scale-100 opacity-70"
-            : "scale-75 opacity-100 rounded-lg"
+            : "scale-30 opacity-100 rounded-lg"
         }`}
       ></div>
 
@@ -89,10 +89,10 @@ const VisionMissionSection = () => {
               : "-translate-x-[200px] opacity-0"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-thin mb-4 tracking-[2px] text-white">
+          <h2 className=" tracking-[2px] text-[45px] text-[#B7C2A2] font-weight-200">
             VISION
           </h2>
-          <p className="text-sm md:text-base leading-relaxed text-white">
+          <p className="leading-relaxed text-white">
             To be a globally recognized and trusted entity known for driving
             innovation, fostering growth, and delivering exceptional value
             across diverse industries. We envision a future where our commitment
@@ -104,16 +104,16 @@ const VisionMissionSection = () => {
 
         {/* Mission */}
         <div
-          className={`ml-auto transition-transform duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-[100%] md:w-[35%]  text-right ${
+          className={`ml-auto transition-transform duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-[100%] md:w-[35%]  text-right ${
             showMission
               ? "translate-x-0 opacity-100"
               : "translate-x-[200px] opacity-0"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-thin mb-4 tracking-[2px] text-white">
+          <h2 className=" tracking-[2px] text-[45px] text-[#B7C2A2] font-weight-200">
             MISSION
           </h2>
-          <p className="text-sm md:text-base leading-relaxed text-white">
+          <p className="leading-relaxed text-white">
             By fostering a culture of continuous innovation, operational
             excellence, and ethical collaboration, we deliver solutions that
             exceed expectations across industries. We empower our teams to drive
@@ -127,4 +127,4 @@ const VisionMissionSection = () => {
   );
 };
 
-export default VisionMissionSection;
+export default VisionMission;

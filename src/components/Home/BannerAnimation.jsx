@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "../../assets/home/cover.jpg";
 
-const ScrollZoomImage = () => {
+const BannerAnimation = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showSubText, setShowSubText] = useState(false);
   const [hideLine, setHideLine] = useState(false);
@@ -34,7 +34,7 @@ const ScrollZoomImage = () => {
         {/* Background Image */}
         <img
           src={Image}
-          alt="Zoom on scroll"
+          alt="Banner Image"
           className={`w-full h-full object-cover transition-transform duration-[2500ms] ${
             isExpanded ? "scale-110" : "scale-100"
           }`}
@@ -110,4 +110,4 @@ const ScrollZoomImage = () => {
   );
 };
 
-export default ScrollZoomImage;
+export default BannerAnimation;

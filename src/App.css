@@ -17,7 +17,7 @@
   font-weight: 400;
   font-style: normal;
 }
-.font-weight-300 {
+.font-weight-200 {
   font-weight: 200 !important;
 }
 .leadership-img {
@@ -38,4 +38,7 @@ p {
 }
 .font-size-18 {
   font-size: 18px;
+}
+.font-bold {
+  font-weight: bold !important;
 }

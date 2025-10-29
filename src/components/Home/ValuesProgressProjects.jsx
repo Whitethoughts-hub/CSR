@@ -3,14 +3,15 @@ import Innovation from "../../assets/home/values/Innovation.svg";
 import Relationship from "../../assets/home/values/Relationship.svg";
 import Sustainability from "../../assets/home/values/Sustainability.svg";
 import LogoImage from "../../assets/main_logo.svg";
-import projectsBgImage from "../../assets/projectsSection.png";
+import DesktopTimelineImage from "../../assets/home/desktopTimeline.png";
+import MobileTimelineImage from "../../assets/home/mobileTimeline.png";
 const ValuesProgressProjects = () => {
   return (
     <>
       <section className="w-full flex flex-col items-center justify-center ">
         {/* Values Start */}
         <div className="max-w-[1300px] px-[20px] md:px-[50px] py-[80px]">
-          <h2 className="text-[45px] text-[#A0AB9B] text-left md:text-center pb-[25px]  font-weight-300">
+          <h2 className="text-[45px] text-[#A0AB9B] text-left md:text-center pb-[25px]  font-weight-200">
             VALUES
           </h2>
           <div className="w-full flex gap-[20px] md:gap-[50px] flex-col md:flex-row items-center justify-between">
@@ -86,7 +87,7 @@ const ValuesProgressProjects = () => {
               <img src={LogoImage} alt="Logo" className="h-[100px] w-full" />
             </div>
             <div className="w-full md:w-[60%] h-[100%]">
-              <h2 className="text-[45px] text-[#A0AB9B] font-weight-300 m-0 p-0 leading-11">
+              <h2 className="text-[45px] text-[#A0AB9B] font-weight-200 m-0 p-0 leading-11">
                 PROGRESSIVELY <br /> FORWARD
               </h2>
               <p className="pt-[10px]">
@@ -114,13 +115,18 @@ const ValuesProgressProjects = () => {
         {/* Progress End */}
         {/* Projects Start */}
         <div className="max-w-[1300px] 2xl:px-[50px]">
-          <h2 className="text-[45px] text-[#A0AB9B] font-weight-300 text-center pt-[80px] pb-[50px] leading-0">
+          <h2 className="text-[45px] text-[#A0AB9B] font-weight-200 text-center pt-[80px] pb-[50px] leading-0">
             PROJECTS
           </h2>
           <img
-            src={projectsBgImage}
-            alt="projectsBgImage"
-            className="h-full w-full"
+            src={DesktopTimelineImage}
+            alt="ProjectsDesktopTimellineImage"
+            className="h-full w-full hidden md:block"
+          />
+          <img
+            src={MobileTimelineImage}
+            alt="ProjectsMobileTimelineImage"
+            className="h-full w-full block md:hidden"
           />
         </div>
         {/* Projects End */}

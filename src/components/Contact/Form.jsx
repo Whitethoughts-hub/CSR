@@ -61,7 +61,7 @@ const ContactForm = () => {
     e.preventDefault();
     if (!validate()) return;
 
-    console.log("Form Submitted:", formData);
+    // console.log("Form Submitted:", formData);
 
     setFormData({
       name: "",
@@ -99,7 +99,7 @@ const ContactForm = () => {
                 font-size: 16px;
               }
               .form-input:focus {
-                border-color: #01CC64;
+                border-color: #007643;
                 outline: none;
                 box-shadow: none;
               }
@@ -187,7 +187,7 @@ const ContactForm = () => {
                 value="3 BHK"
                 onChange={handleChange}
                 checked={formData.apartment.includes("3 BHK")}
-              />{" "}
+              />
               3 BHK
             </label>
             <label className="ml-4">
@@ -197,7 +197,7 @@ const ContactForm = () => {
                 value="4 BHK"
                 onChange={handleChange}
                 checked={formData.apartment.includes("4 BHK")}
-              />{" "}
+              />
               4 BHK
             </label>
           </p>

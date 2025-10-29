@@ -14,7 +14,7 @@ const Intro = () => {
           <p className="pb-[15px]">
             For over 40 years, we have built CSR on the foundations of trust,
             reliability, and innovation. Having been at the forefront of
-            progress that is driven by our values ofresponsible, sustainable
+            progress that is driven by our values of responsible, sustainable
             practices with long-lasting relationships.
           </p>
           <p className="pb-[15px]">
