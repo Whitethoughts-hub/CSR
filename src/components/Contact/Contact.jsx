@@ -9,7 +9,7 @@ const Contact = () => {
               <h1 className="text-[27px] text-[#007643]">+91 40 2311 8484</h1>
             </a>
             <a href="mailto:info@csrestates.com" target="_blank">
-              <h2 className="text-[18px] text-[#404041]">
+              <h2 className="text-[18px] text-[#000000]]">
                 info@csrestates.com
               </h2>
             </a>

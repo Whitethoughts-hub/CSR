@@ -3,69 +3,42 @@ import bgImage from "../../assets/home/cover.jpg";
 
 const VisionMission = () => {
   const sectionRef = useRef(null);
-  const [overlayExpanded, setOverlayExpanded] = useState(false);
-  const [showVision, setShowVision] = useState(false);
-  const [showMission, setShowMission] = useState(false);
-  const lastScrollY = useRef(0);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const section = sectionRef.current;
-      const navbar = document.querySelector("nav");
-      if (!section || !navbar) return;
+    const section = sectionRef.current;
+    if (!section) return;
 
-      const sectionRect = section.getBoundingClientRect();
-      const navbarBottom = navbar.getBoundingClientRect().bottom;
-      const viewportHeight = window.innerHeight;
-      const scrollingDown = window.scrollY > lastScrollY.current;
-      lastScrollY.current = window.scrollY;
-
-      const sectionHeight = sectionRect.height;
-      const visibleHeight =
-        Math.min(viewportHeight, sectionRect.bottom) -
-        Math.max(0, sectionRect.top);
-      const visibleRatio = visibleHeight / sectionHeight;
-
-      // ✅ Scroll Down: trigger when top of section touches navbar bottom
-      if (
-        scrollingDown &&
-        sectionRect.top <= navbarBottom &&
-        sectionRect.bottom > navbarBottom &&
-        !overlayExpanded
-      ) {
-        setOverlayExpanded(true);
-        setTimeout(() => setShowVision(true), 1000);
-        setTimeout(() => setShowMission(true), 1800);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // Trigger animation when 30% of section enters viewport
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
+            setAnimate(true);
+          } else if (entry.intersectionRatio < 0.1) {
+            // Optional: reset animation when it leaves viewport
+            setAnimate(false);
+          }
+        });
+      },
+      {
+        threshold: [0, 0.5, 1], // Observe 0%, 30%, 100% visibility
       }
+    );
 
-      // ✅ Scroll Up: trigger when 70% of section is visible in viewport
-      if (!scrollingDown && visibleRatio >= 0.9 && !overlayExpanded) {
-        setOverlayExpanded(true);
-        setTimeout(() => setShowVision(true), 1000);
-        setTimeout(() => setShowMission(true), 1800);
-      }
-
-      // ✅ Reset when fully out of viewport (any direction)
-      if (sectionRect.bottom <= 0 || sectionRect.top >= viewportHeight) {
-        setOverlayExpanded(false);
-        setShowVision(false);
-        setShowMission(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [overlayExpanded]);
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section
       ref={sectionRef}
-      className="relative h-[100vh] w-full py-[80px] overflow-hidden flex flex-col items-center justify-center"
+      className="relative w-full py-[50px] md:py-[80px] overflow-hidden flex flex-col items-center justify-center"
     >
       {/* Background Image */}
       <div
         className={`absolute inset-0 bg-cover bg-center transition-transform duration-[2500ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
-          overlayExpanded ? "scale-110" : "scale-100"
+          animate ? "scale-110" : "scale-100"
         }`}
         style={{ backgroundImage: `url(${bgImage})` }}
       ></div>
@@ -73,23 +46,21 @@ const VisionMission = () => {
       {/* Overlay */}
       <div
         className={`absolute inset-0 bg-black/70 transform transition-all duration-[1300ms] ease-[cubic-bezier(0.4,0,0.2,1)] ${
-          overlayExpanded
-            ? "scale-100 opacity-70"
-            : "scale-30 opacity-100 rounded-lg"
+          animate ? "scale-100 opacity-70" : "scale-30 opacity-100 rounded-lg"
         }`}
       ></div>
 
       {/* Content */}
-      <div className="relative z-10 w-[100%] max-w-[1300px] gap-[80px] md:gap-[0px] flex flex-col px-[20px] md:px-[50px]">
+      <div className="relative z-10 w-full max-w-[1300px] gap-[80px] md:gap-[0px] flex flex-col px-[20px] md:px-[50px]">
         {/* Vision */}
         <div
-          className={`transition-transform duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-[100%] md:w-[35%] ${
-            showVision
+          className={`transition-all duration-[1200ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-full md:w-[35%] ${
+            animate
               ? "translate-x-0 opacity-100"
               : "-translate-x-[200px] opacity-0"
           }`}
         >
-          <h2 className=" tracking-[2px] text-[45px] text-[#B7C2A2] font-weight-200">
+          <h2 className="tracking-[2px] text-[45px] text-[#B7C2A2] font-weight-200">
             VISION
           </h2>
           <p className="leading-relaxed text-white">
@@ -104,13 +75,13 @@ const VisionMission = () => {
 
         {/* Mission */}
         <div
-          className={`ml-auto transition-transform duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-[100%] md:w-[35%]  text-right ${
-            showMission
+          className={`ml-auto transition-all duration-[1400ms] ease-[cubic-bezier(0.4,0,0.2,1)] w-full md:w-[35%] text-right ${
+            animate
               ? "translate-x-0 opacity-100"
               : "translate-x-[200px] opacity-0"
           }`}
         >
-          <h2 className=" tracking-[2px] text-[45px] text-[#B7C2A2] font-weight-200">
+          <h2 className="tracking-[2px] text-[45px] text-[#B7C2A2] font-weight-200">
             MISSION
           </h2>
           <p className="leading-relaxed text-white">
