@@ -33,7 +33,7 @@ const VisionMission = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-[50px] md:py-[80px] overflow-hidden flex flex-col items-center justify-center"
+      className="relative w-full py-[80px] overflow-hidden flex flex-col items-center justify-center"
     >
       {/* Background Image */}
       <div
