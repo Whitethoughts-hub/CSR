@@ -74,7 +74,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="bg-[#FAFAFA] h-full w-full px-6 md:px-12 py-6 md:py-10 rounded flex flex-col items-center justify-center">
+    <div className="bg-[#FAFAFA] h-full w-full px-2 md:px-12 py-6 md:py-10 rounded flex flex-col items-center justify-center">
       <h2 className="text-[#007643] text-[27px] text-center pb-[10px]">
         Get In Touch With Us
       </h2>
@@ -188,7 +188,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 checked={formData.apartment.includes("3 BHK")}
               />
-              3 BHK
+              &nbsp; 3BHK
             </label>
             <label className="ml-4">
               <input
@@ -198,7 +198,7 @@ const ContactForm = () => {
                 onChange={handleChange}
                 checked={formData.apartment.includes("4 BHK")}
               />
-              4 BHK
+              &nbsp; 4BHK
             </label>
           </p>
           <div className="error-container">

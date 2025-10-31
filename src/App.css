@@ -42,3 +42,9 @@ p {
 .font-bold {
   font-weight: bold !important;
 }
+.line-height-10 {
+  line-height: 30px !important;
+}
+input[type="checkbox"] {
+  accent-color: #007643; /* your custom color */
+}

@@ -12,7 +12,7 @@ const Projects = () => {
         style={{ backgroundImage: `url(${bgImage})` }}
       >
         <h1 className="text-[45px] text-[#007643] text-center py-[30px] font-weight-200">
-          PROJECT COMING SOON…
+          COMING SOON…
         </h1>
       </section>
       <Footer />

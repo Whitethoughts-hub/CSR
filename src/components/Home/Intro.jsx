@@ -19,7 +19,7 @@ const Intro = () => {
           </p>
           <p className="pb-[15px]">
             Through our future-focused approach, we strive for the ideal of
-            ‘Vasudhaiva Kutumbakam believes that the world is one family, bound
+            ‘Vasudhaiva Kutumbakam believing that the world is one family, bound
             by shared values, mutual respect, and collective responsibility to
             create a more compassionate and inclusive future. We are committed
             to aligning our efforts with Sustainable Development Goals laid out
